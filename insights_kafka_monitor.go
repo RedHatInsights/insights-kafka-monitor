@@ -36,6 +36,10 @@ const (
 	brokerConnectionSuccessMessage = "Broker connection OK"
 	brokerAddressMessage           = "Broker address"
 	brokerConfigurationMessage     = "Broker configuration"
+	securityProtocol               = "Security protocol"
+	certPath                       = "SSL cert path"
+	saslMechanism                  = "SASL Mechanism"
+	saslUsername                   = "SASL username"
 	topic                          = "Topic"
 	group                          = "Group"
 	enabled                        = "Enabled"
@@ -75,6 +79,10 @@ func showConfiguration(config ConfigStruct) {
 	brokerConfig := GetBrokerConfiguration(&config)
 	log.Info().
 		Str(brokerAddressMessage, brokerConfig.Address).
+		Str(securityProtocol, brokerConfig.SecurityProtocol).
+		Str(certPath, brokerConfig.CertPath).
+		Str(saslMechanism, brokerConfig.SaslMechanism).
+		Str(saslUsername, brokerConfig.SaslUsername).
 		Str(topic, brokerConfig.Topic).
 		Str(group, brokerConfig.Group).
 		Bool(enabled, brokerConfig.Enabled).
